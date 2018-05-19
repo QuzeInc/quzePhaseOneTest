@@ -1,0 +1,142 @@
+body {
+	background-color: black;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.color{
+	color: #6E6E6E;
+}
+nav a{
+	color: white;
+}
+.navbar{
+	margin-bottom: 0;
+}
+
+.mainRectangle {
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 10px 0 rgba(216,216,216,0.5);
+	margin-top: 3em;
+	padding-top: 62px;
+	padding-bottom: 43px;
+}
+
+.profile-img {
+	width: 80px;
+	height: 80px;
+	/*argin: 0px 134px 66px 134px;*/
+	position: relative;
+	margin-left: -40px;
+	left: 50%;
+	margin-bottom: 29px;
+}
+
+input{
+	position: relative;
+	left: 50%;
+	margin-left: -127px;
+}
+
+input[type=text] {
+	border: none;
+	border-bottom: 1px solid black;
+	border-radius: 0px;
+	width: 254px;	
+	margin-top: 54px;
+}
+
+input[type=password] {
+	border: none;
+	border-bottom: 1px solid black;
+	border-radius: 0px;
+	margin-top: 29px;
+	width: 254px;
+}
+
+input[type=email] {
+	border: none;
+	border-bottom: 1px solid black;
+	border-radius: 0px;
+	margin-top: 29px;
+	width: 254px;
+}
+
+.loginButtonFirst{
+	position: relative;
+	left: 50%;
+	margin-left: -127px;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	width: 254px;
+	margin-bottom: 5px;
+	border-radius: 0px;
+}
+.loginButtonFirst:hover{
+	color: white;
+	background-color: black;
+}
+#loginButton1st{
+	margin-top: 5em;
+}
+#loginButton3rd{
+	margin-bottom: 4em;
+}
+#loginButton{
+	position: relative;
+	left: 50%;
+	margin-left: -127px;
+	background-color: black;
+	color: white;
+	margin-top: 60px;
+	width: 254px;
+	margin-bottom: 30px;
+	border-radius: 0px;
+}
+.options{
+	color: #6E6E6E;
+	font-size: 15px;
+	text-align: center;
+}
+
+.options:hover{
+	color: #6E6E6E;
+}
+
+#option1{
+	position: relative;
+	left: 50%;
+	margin-left: -31px;
+}
+
+#option2{
+	position: relative;
+	left: 50%;
+	margin-left: -77.4px;
+	margin-bottom: 43px;
+}
+
+#finalStage{
+	margin-top: 7.4em;
+	margin-bottom: 7.4em;
+}
+
+#secondPage{
+	display: none;
+}
+#thirdPage{
+	display: none;
+}
+
+#internalBackBtn{
+	display: none;
+	height: 40px;
+	width: 40px;
+	border-radius: 30px;
+	background-color: black;
+	color: white;
+}

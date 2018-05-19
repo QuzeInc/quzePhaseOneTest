@@ -1,0 +1,89 @@
+body {
+	background-color: black;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+nav a{
+	color: white;
+}
+.navbar{
+	margin-bottom: 0;
+}
+
+#mainRectangle {
+	border-radius: 5px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 10px 0 rgba(216,216,216,0.5);
+	margin-top: 3em;
+	padding-top: 62px;
+	padding-bottom: 43px;
+}
+
+.profile-img {
+	width: 132px;
+	height: 132px;
+	/*argin: 0px 134px 66px 134px;*/
+	position: relative;
+	margin-left: -66px;
+	left: 50%;
+	margin-bottom: 3em;
+}
+
+input{
+	position: relative;
+	left: 50%;
+	margin-left: -127px;
+}
+
+input[type=text] {
+	border: none;
+	border-bottom: 1px solid black;
+	border-radius: 0px;
+	width: 254px;
+}
+
+input[type=password] {
+	border: none;
+	border-bottom: 1px solid black;
+	border-radius: 0px;
+	margin-top: 29px;
+	width: 254px;
+}
+
+#loginButton{
+	position: relative;
+	left: 50%;
+	margin-left: -127px;
+	background-color: black;
+	color: white;
+	margin-top: 60px;
+	width: 254px;
+	margin-bottom: 30px;
+	border-radius: 0px;
+}
+
+.options{
+	color: #6E6E6E;
+	font-size: 15px;
+	text-align: center;
+}
+
+.options:hover{
+	color: #6E6E6E;
+}
+
+#option1{
+	position: relative;
+	left: 50%;
+	margin-left: -31px;
+}
+
+#option2{
+	position: relative;
+	left: 50%;
+	margin-left: -77.4px;
+	margin-bottom: 43px;
+}

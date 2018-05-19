@@ -1,0 +1,78 @@
+body{
+	background-color: #EEEEEE;
+}
+p{
+	margin: 0px;
+}
+
+/* ========== navbar ============= */
+
+.navbar{
+	border-radius: 0px;
+	background-color: white;
+	color: #6E6E6E;
+	border-bottom: 1px solid black;
+	font-size: 1.2em;
+}
+
+.navbar a{
+	text-decoration: none;
+	color: #6E6E6E;
+}
+.navbar a:hover{
+	text-decoration: none;
+	background-color: white;
+	color: #6E6E6E;
+}
+
+.active{
+	background-color: white;
+	font-weight: bold;
+	border-bottom: 3px solid black;
+	color: black !important;
+}
+
+#navbarImage1{
+	height: 37px;
+	width: 37px;
+	margin-top: 8px;
+}
+#navbarImage2{
+	height: 33px;
+	width: 33px;
+}
+
+#menu{
+	position: relative;
+	left: 50%;
+	margin-left: -133px;
+}
+
+/* ============== certificates =================== */
+.row{
+	margin-bottom: 1.3em;
+}
+.user{
+	width: 100%;
+	background-color: white;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.userImage{
+	position: relative;
+	float: left;
+	height: 100px;
+	width: 100px;
+	border-radius: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
+}
+.infoOfUser{
+	font-size: 18px;
+	position: relative;
+	float: left;
+	margin-left: 1em;
+	margin-top: 60px;
+	font-weight: bold;
+}
