@@ -1,0 +1,19 @@
+{
+  "name": "quzePhaseOneTest",
+  "version": "1.0.0",
+  "description": "The phase 1 test of quze inc",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuzeInc/quzePhaseOneTest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuzeInc/quzePhaseOneTest/issues"
+  },
+  "homepage": "https://github.com/QuzeInc/quzePhaseOneTest"
+}
