@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
     if (localStorage.getItem("type") === "issuer" && localStorage.getItem("issuerId") !== "" && localStorage.getItem("token") !== "") {
-        window.location.replace("issuer.html");
+        window.location.replace("issuerHome.html");
     }
     else if (localStorage.getItem("type") === "recipient" && localStorage.getItem("recipientId") !== "" && localStorage.getItem("token") !== "") {
-        window.location.replace("recipient.html");
+        window.location.replace("recipientHome.html");
     }
     else {
         var i = localStorage.length;

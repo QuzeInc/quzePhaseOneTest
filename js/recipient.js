@@ -3,12 +3,9 @@ var baseUrl = 'https://backend.quze.co';
 $(document).ready(function(){
 
     if (localStorage.getItem("type") === "issuer" && localStorage.getItem("issuerId") !== "" && localStorage.getItem("token") !== "") {
-        window.location.replace("issuer.html");
+        window.location.replace("issuerHome.html");
     }
     else if (localStorage.getItem("type") === "recipient" && localStorage.getItem("recipientId") !== "" && localStorage.getItem("token") !== "") {
-/*
-        window.location.replace("recipient.html");
-*/
     }
     else {
         var i = localStorage.length;
@@ -31,6 +28,7 @@ $(document).ready(function(){
     $("#welcomeRecipientHomeUserName").text(localStorage.recipientId);
 	// from this function we dynamically add the username of the issuer 
 	generateRecipientNavbar(localStorage.recipientId);
+	displayCerts(localStorage.recipientId);
 
 	// we are making the next call so as to show the certificates that have been issued inside the batch by the issuer
 	/*$.ajax({
@@ -53,6 +51,48 @@ $(document).ready(function(){
 
 function generateRecipientNavbar(recipientId){
 	$("#recipientId").prepend("<span>"+recipientId+"</span>");
+}
+
+function displayCerts(recipientId)
+{
+    $.ajax({
+        url:baseUrl + "/recipientCertList/"+recipientId ,
+        headers:{"Content-Type":"application/json","Authorization":localStorage.token},
+        type:"GET"
+    }).done(function (response) {
+        console.log(response);
+        for(var i=0;i<response.length;i++)
+        {
+            console.log(response[i].batchId);
+            $.ajax({
+                url:baseUrl+"/viewBatchInfo"+'/'+response[i].batchId,
+                headers:{"Authorization":localStorage.token}
+            }).done(function(data,i,response){
+
+                var certInfo = $("<div class=\"row\">\n" +
+                    "\t\t\t<div class=\"certificate col-md-12\" data-toggle=\"modal\" data-target=\"#certModal\">\n" +
+                    "\t\t\t\t<img src=\"\" class=\"certificateImage issuerLogo\">\n" +
+                    "\t\t\t\t<div class=\"infoOfCertificate\">\n" +
+                    "\t\t\t\t\t<p>" + data.issuerId +"</p>\n" +
+                    "\t\t\t\t\t<p>" + data.title +"</p>\n" +
+                    "\t\t\t\t\t<p>" + data.description + "</p>\n" +
+                    "\t\t\t\t</div>\t\n" +
+                    "\t\t\t\t<i class=\"fa fa-check-circle-o tickIcon\" aria-hidden=\"true\"></i>\t\n" +
+                    "\t\t\t</div>\n" +
+                    "\t\t</div>");
+                certInfo.attr('id',response[i].certId);
+                $("#certDisplayContainer").append(certInfo);
+
+                $.ajax({
+                    url:baseUrl+"/getPic/"+data.issuerId,
+                    headers:{'Authorization':localStorage.token},
+                    success:function (data) {
+                        $(".issuerLogo").attr('src',"data:image/png;base64, "+data);
+                    }
+                });
+            })
+        }
+    });
 }
 
 var data;

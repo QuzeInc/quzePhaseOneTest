@@ -1,0 +1,213 @@
+html {
+	font-size: 24px;
+	-webkit-font-smoothing: antialiased;
+}
+body{
+	background-color: #EEEEEE;
+}
+p{
+	margin: 0px;
+}
+.glyphicon{
+	font-size: 25px;
+}
+a, a:hover{
+	text-decoration: none;
+}
+.tickIcon{
+	position: absolute;
+	font-size: 40px;
+	color:green;
+	top:30%;
+	right:1.5%;
+}
+.underProcessIcon
+{
+	position: absolute;
+	font-size: 40px;
+	color:blue;
+	top:30%;
+	right:1.5%;
+}
+
+
+/* ========== navbar ============= */
+
+.navbar{
+	border-radius: 0px;
+	background-color: white;
+	color: #6E6E6E;
+	border-bottom: 1px solid #6E6E6E;
+	font-size: 1.2em;
+}
+
+.navbar a{
+	text-decoration: none;
+	color: #6E6E6E;
+}
+.navbar a:hover{
+	text-decoration: none;
+	background-color: white;
+	color: #6E6E6E;
+}
+
+.active{
+	background-color: white;
+	font-weight: bold;
+	border-bottom: 3px solid black;
+	color: black !important;
+}
+
+#navbarImage1{
+	height: 37px;
+	width: 37px;
+	margin-top: 8px;
+}
+#navbarImage2{
+	height: 33px;
+	width: 33px;
+}
+
+#menu{
+	position: relative;
+	left: 50%;
+	margin-left: -231px;
+}
+
+#issuerHome{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+#issuerLearn{
+	padding-left: 50px;
+	padding-right: 50px;
+	color: black;
+}
+#issuerWallet{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+/* ============== certificates =================== */
+
+.row{
+	margin-bottom: 1.3em;
+}
+
+.typeOfCertificate{
+	color: #6E6E6E;	
+	margin-bottom: 1.5em;
+}
+.certificate{
+	width: 100%;
+	background-color: white;
+	padding-left: 0px;
+	padding-right: 0px;
+	min-height: 102.8px;
+}
+.infoOfCertificate{
+	font-size: 18px;
+	position: relative;
+	float: left;
+	margin-left: 2em;
+	color: #6E6E6E;
+	margin-top: 13px;
+	margin-bottom: 13px;
+}
+.glyphicon.certificateGlyphs{
+	margin-top: 35px;
+}
+
+/* =============== floating action button=============== */
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:black;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:16px;
+	color: #FFF;
+}
+
+/* ============= floating action button clicked menu ================== */
+
+#createBatchButtonModal{
+	position: fixed;
+	bottom: 110px;
+	right: 50px;
+	display: none;
+}
+
+.createBatchButtonOptions{
+	background-color: black;
+	color: white;
+	font-size: 1em;
+	margin-bottom: 12px;
+	padding-top: 11px;
+	padding-bottom: 11px;
+}
+
+#removeModal{
+	display: none;
+}
+
+/* =========== batch creation dialog modal ============== */
+
+#batchCreationDialogModal{
+	position: fixed;
+	top: 40px;
+	width: 50%;
+	left: 50%;
+	margin-left: -25%;
+	display: none;
+}
+
+#issueButton{
+	position: relative;
+	left: 47%;
+	margin-left: -21px;
+	background-color: black; 
+	color: white; 
+	border-radius: 0px;
+}
+
+/* =========== input upload buttons ============= */
+
+.file-upload {
+	position: relative;
+	display: inline-block;
+}
+
+.file-upload__label {
+	display: block;
+	padding: 0.7em 1.7em;
+	color: #fff;
+	background: #222;
+	transition: background .3s;
+}
+.file-upload__label:hover {
+	cursor: pointer;
+	background: #000;
+}
+
+.file-upload__input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	font-size: 1;
+	width: 0;
+	height: 100%;
+	opacity: 0;
+}
+

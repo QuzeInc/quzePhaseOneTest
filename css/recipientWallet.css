@@ -4,6 +4,9 @@ body{
 p{
 	margin: 0px;
 }
+.glyphicon{
+	font-size: 30px;
+}
 
 /* ========== navbar ============= */
 
@@ -37,6 +40,7 @@ p{
 	width: 37px;
 	margin-top: 8px;
 }
+
 #navbarImage2{
 	height: 33px;
 	width: 33px;
@@ -51,7 +55,6 @@ p{
 #recipientHome{
 	padding-left: 50px;
 	padding-right: 50px;
-	color: black;
 }
 #recipientLearn{
 	padding-left: 50px;
@@ -60,33 +63,38 @@ p{
 #recipientWallet{
 	padding-left: 50px;
 	padding-right: 50px;
+	color: black;
 }
-
 /* ============== certificates =================== */
 .row{
 	margin-bottom: 1.3em;
 }
-.user{
+
+.typeOfCertificate{
+	color: #6E6E6E;	
+	margin-bottom: 1.5em;
+}
+.certificate{
 	width: 100%;
 	background-color: white;
 	padding-left: 0px;
 	padding-right: 0px;
 }
-.userImage{
+.certificateImage{
 	position: relative;
 	float: left;
-	height: 100px;
-	width: 100px;
-	border-radius: 200px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	margin-left: 20px;
+	height: 150px;
+	widows: 150px;
 }
-.infoOfUser{
+.infoOfCertificate{
 	font-size: 18px;
 	position: relative;
 	float: left;
-	margin-left: 1em;
-	margin-top: 60px;
-	font-weight: bold;
+	margin-left: 2em;
+	color: #6E6E6E;
+	margin-top: 34px; 
+}
+.glyphicon.certificateGlyphs{
+	margin-top: 55px;
+
 }

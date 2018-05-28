@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>QUZE | Issuer Issue</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="./css/issuerIssue.css">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+	<!-- navbar -->
+	<nav class="navbar">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" style="color: black;">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+				<a href="issuerHome.html"><img src="images/img3.png" id="navbarImage1"></a>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav" id="menu">
+					<li><a href="issuerHome.html" id="issuerHome">HOME</a></li>
+					<li class="active"><a href="issuerIssue.html" id="issuerLearn">ISSUE</a></li>
+					<li><a href="issuerWallet.html" id="issuerWallet">WALLET</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<!-- <li class="active" id="issuerName"></li> -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle active" id="issuerId" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><!-- <img src="images/placeholder.png" id="navbarImage2"> --></a>
+						<ul class="dropdown-menu">
+							<li><a href="#" style="color:black;padding:10px;">ACCOUNT</a></li>
+							<li><a href="#" style="color:black;padding:10px;">SETTINGS</a></li>
+							<li><a href="#" style="color:black;padding:10px;">HELP</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#" style="padding:10px;" onclick="logOut();">LOG OUT</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="container" id="containerDisplayingBatches">
+		<h4 class="typeOfCertificate">BATCHES</h4>
+	</div>
+
+	<!-- this is the floating action button -->
+
+	<a href="#" class="float" onclick="createBatchButton();">
+		<i class="glyphicon glyphicon-plus my-float" id="createBatch"></i>
+		<i class="glyphicon glyphicon-remove my-float" id="removeModal"></i>
+	</a>
+
+	<!-- This the options menu that opens when pressed the floating action button -->
+	<div class="container">
+		<div class="row">
+			<div id="createBatchButtonModal" class="col-sm-2 col-xs-4">
+				<a href="#" ><div class="createBatchButtonOptions text-center" onclick="batchCreationDialog();">CREATE BATCH</div></a>
+				<a href="#" ><div class="createBatchButtonOptions text-center">EDIT BATCH</div></a>
+				<a href="#" ><div class="createBatchButtonOptions text-center">DELETE BATCH</div></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- The dialog box modal that opens after pressing the create batch button -->
+	<div class="container" id="batchCreationDialogModal">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" onclick="closeBatchCreateDialog();"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">CREATE A NEW BATCH</h4>
+					</div>
+					<div class="modal-body">
+						<form enctype="multipart/form-data" method="post" id="fileUploadForm" name="fileUploadForm">
+							<div class="row">
+								<div class="form-group col-md-7">
+									<label for="title">Title</label>
+									<input type="text" class="form-control" id="title" placeholder="Title">
+								</div>
+								<div class="form-group col-md-4">
+									<br />
+									<label for="CSVUpload" class="file-upload__label" style="max-width: 11em;">Upload CSV</label>
+									<input type="file" class="file-upload__input" id="CSVUpload" name="CSVUpload" placeholder="CSV File">
+									<div id="selectedCSVFiles">Uploaded CSV file is : </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-7">
+									<label for="numCerts">Number of Students</label>
+									<input type="number" class="form-control" id="numCerts" placeholder="100">
+								</div>
+								<div class="form-group col-md-4">
+									<br />
+									<label for="imageUpload" class="file-upload__label" style="max-width: 11em;">Upload Images</label>
+									<input type="file" id="imageUpload" name="imageUpload" class="file-upload__input" placeholder="Certificate Image" multiple>
+									<div id="selectedImageFiles">Number uploaded is : </div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group col-md-12">
+									<label for="description">Description</label>
+									<textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
+								</div>	
+							</div>						
+							<div class="row">
+								<!-- <div class="form-group col-md-12">
+									<input type="submit" value="ISSUE" id="issueButton" data-dismiss="modal" onclick="issue()">
+								</div> -->
+								<div class="btn btn-lg" id="issueButton" data-dismiss="modal" onclick="issue();">SUBMIT</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/bootstrap.min.js"></script><!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/issuerIssue.js"></script>
+
+</body>
+</html>

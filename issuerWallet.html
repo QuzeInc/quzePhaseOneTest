@@ -5,10 +5,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>QUZE | Recipient Home</title>
+	<title>QUZE | Issuer Wallet</title>
 
 	<link href="css/bootstrap.min.css" rel="stylesheet"><!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="./css/recipientHome.css">
+	<link rel="stylesheet" type="text/css" href="./css/issuerHome.css">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,6 +19,7 @@
 </head>
 <body>
 
+	<!-- navbar -->
 	<nav class="navbar">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -29,18 +30,18 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				<a href="index.html"><img src="images/img3.png" id="navbarImage1"></a>
+				<a href="issuerHome.html"><img src="images/img3.png" id="navbarImage1"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav" id="menu">
-					<li class="active"><a href="recipientHome.html" id="recipientHome">HOME</a></li>
-					<li><a href="recipientLearn.html" id="recipientLearn">LEARN</a></li>
-					<li><a href="recipientWallet.html" id="recipientWallet">WALLET</a></li>
+					<li><a href="issuerHome.html" id="issuerHome">HOME</a></li>
+					<li><a href="issuerIssue.html" id="issuerLearn">ISSUE</a></li>
+					<li class="active"><a href="issuerWallet.html" id="issuerWallet" style="color: black;">WALLET</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<!-- <li class="active" id="issuerName"></li> -->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle active" id="recipientId" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><!-- <img src="images/placeholder.png" id="navbarImage2"> --></a>
+						<a href="#" class="dropdown-toggle active" id="issuerId" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><!-- <img src="images/placeholder.png" id="navbarImage2"> --></a>
 						<ul class="dropdown-menu">
 							<li><a href="#" style="color:black;padding:10px;">ACCOUNT</a></li>
 							<li><a href="#" style="color:black;padding:10px;">SETTINGS</a></li>
@@ -54,21 +55,12 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 
-	<div class="container">
-		<div class="row">
-			<div class="user col-md-12" data-toggle="modal" data-target="#certModal">
-				<img src="images/placeholder.png" class="userImage">
-				<div class="infoOfUser">
-					<p>Welcome, <span id="welcomeRecipientHomeUserName"></span></p>
-				</div>		
-			</div>
-		</div>		
+	<div class="container">	
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/bootstrap.min.js"></script><!-- Include all compiled plugins (below), or include individual files as needed -->
-	<!-- <script src="js/verifier.js"></script> --><!-- This is the js file that has the code of the verification of the certificates that have been issued -->
-	<script src="js/recipient.js"></script>
+	<script src="js/issuerWallet.js"></script>
 
 </body>
 </html>

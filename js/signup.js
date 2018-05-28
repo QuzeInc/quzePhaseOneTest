@@ -1,10 +1,9 @@
 $(document).ready(function(){
-
     if (localStorage.getItem("type") === "issuer" && localStorage.getItem("issuerId") !== "" && localStorage.getItem("token") !== "") {
-        window.location.replace("issuer.html");
+        window.location.replace("issuerHome.html");
     }
     else if (localStorage.getItem("type") === "recipient" && localStorage.getItem("recipientId") !== "" && localStorage.getItem("token") !== "") {
-        window.location.replace("recipient.html");
+        window.location.replace("recipientHome.html");
     }
     else {
         var i = localStorage.length;
@@ -20,14 +19,10 @@ $(document).ready(function(){
             key2 = sessionStorage.key(j);
             sessionStorage.removeItem(key2);
         }
-
-/*
-        window.location.replace("signin.html");
-*/
     }
-
 });
 
+// the back button that allows to go between the screens
 $("#internalBackBtn").click(function () {
 	$("#firstPage").css("display", "block");
 	$("#secondPage").css("display", "none");
@@ -55,6 +50,8 @@ function signup() {
 
 	var headers = {'Content-Type':'application/json;charset=utf8'};
 
+    //it makes three consecutive ajax calls..., the first one to check whether a user with the give username exists or not if not make one, 
+    //the second to the login url to get the token of the already created user and the third one to actually replace the user to the given page
 	$.ajax({
         url: baseUrl + '/register',
         type: "POST",
@@ -76,12 +73,12 @@ function signup() {
                     if(type==='issuer')
                     {
                     	localStorage.setItem('issuerId',userId);
-                    	window.location.replace("issuer.html");
+                    	window.location.replace("issuerHome.html");
                     }
                     else
                     {
                     	localStorage.setItem('recipientId',userId);
-                    	window.location.replace("recipient.html");
+                    	window.location.replace("recipientHome.html");
                     }
                 });
             }
@@ -89,7 +86,7 @@ function signup() {
     })
 }
 
-
+// used to check which kind of login button was clicked from the first screen
 function typeOfLogin(clicked_id){
 	if (clicked_id === 'studentLoginButton') {
         type = 'recipient';

@@ -11,7 +11,7 @@ p{
 	border-radius: 0px;
 	background-color: white;
 	color: #6E6E6E;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #6E6E6E;
 	font-size: 1.2em;
 }
 
@@ -37,7 +37,6 @@ p{
 	width: 37px;
 	margin-top: 8px;
 }
-
 #navbarImage2{
 	height: 33px;
 	width: 33px;
@@ -46,35 +45,48 @@ p{
 #menu{
 	position: relative;
 	left: 50%;
-	margin-left: -133px;
+	margin-left: -231px;
+}
+
+#issuerHome{
+	padding-left: 50px;
+	padding-right: 50px;
+	color: black;
+}
+#issuerLearn{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+#issuerWallet{
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 /* ============== certificates =================== */
 .row{
 	margin-bottom: 1.3em;
 }
-
-.typeOfCertificate{
-	color: #6E6E6E;	
-	margin-bottom: 1.5em;
-}
-.certificate{
+.user{
 	width: 100%;
 	background-color: white;
 	padding-left: 0px;
 	padding-right: 0px;
 }
-.certificateImage{
+.userImage{
 	position: relative;
 	float: left;
-	height: 150px;
-	widows: 150px;
+	height: 80px;
+	width: 80px;
+	border-radius: 160px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 20px;
 }
-.infoOfCertificate{
+.infoOfUser{
 	font-size: 18px;
 	position: relative;
 	float: left;
 	margin-left: 1em;
-	color: #6E6E6E;
-	margin-top: 34px; 
+	margin-top: 50px;
+	font-weight: bold;
 }
