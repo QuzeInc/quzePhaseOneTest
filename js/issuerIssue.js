@@ -95,29 +95,62 @@ function generateIssuerDashboard(issuerData){
 
 				if(batchData.batchStatus === 3)
 				{
-					var newAddedDiv = $("<div class=\"row\" onclick='redirect(this)'>\n" +
-						"\t\t\t<div class=\"certificate col-md-12\" data-toggle=\"modal\" data-target=\"#certModal\">\n" +
+					let newAddedDiv = $(
+						"\t\t<div class=\"row\" onclick='clickCertificate(this.id)'>\n" +
+						"\t\t\t<div class=\"certificate col-md-12\">\n" +
 						"\t\t\t\t<div class=\"infoOfCertificate\">\n" +
 						"\t\t\t\t\t<p>"+ batchData.title +"</p>\n" +
 						"\t\t\t\t\t<p>" + batchData.description + "</p>\n" +
 						"\t\t\t\t\t<p>" + batchData.numCerts + " students</p>\t\n" +
 						"\t\t\t\t</div>\t\n" +
-						"\t\t\t\t<i class=\"fa fa-check-circle-o tickIcon\" aria-hidden=\"true\"></i>\n" +
-						"\t\t\t</div>\n" +
-						"\t\t</div>");
+						"\t\t\t\t<span class=\"icon-check tickIcon\" aria-hidden=\"true\"></span>\n" +
+						"\t\t\t\t<div class=\"batchInfo\" id=\"batchInfo"+batchData.batchId+"\">\n" +
+                        "\t\t\t\t\t<br /><br />\n" +
+                        "\t\t\t\t\t<table class=\"table table-hover\">\n" +
+                        "\t\t\t\t\t\t<thead>\n" +
+                        "\t\t\t\t\t\t<tr>\n" +
+                        "\t\t\t\t\t\t\t<th style=\"padding-left: 36px;\">Sr. No</th>\n" +
+                        "\t\t\t\t\t\t\t<th>Name</th>\n" +
+                        "\t\t\t\t\t\t\t<th>Email</th>\n" +
+                        "\t\t\t\t\t\t</tr>\n" +
+                        "\t\t\t\t\t\t</thead>\n" +
+                        "\t\t\t\t\t\t<tbody id=\"batchInfoTable"+ batchData.batchId +"\"><!-- all the new certificates issued in this batch are appended in this table -->\n" +
+                        "\t\t\t\t\t\t</tbody>\n" +
+                        "\t\t\t\t\t</table>\n" +
+                        "\t\t\t\t</div>" +
+                        "\t\t\t</div>\n" +
+                        "\t\t</div>");
 					newAddedDiv.attr('id',batchData.batchId);
 					$("#containerDisplayingBatches").append(newAddedDiv);
+
+					$.ajax({
+						url:baseUrl + '/issuerBatchList/'+ localStorage.getItem("issuerId")+ '/'+batchData.batchId,
+						headers:{'Authorization':localStorage.token},
+						batch: batchData.batchId,
+						success:function(responseList){
+							let batchName = this.batch;
+							$.each(responseList, function (index, element) {
+								let tableDiv = $("<tr>\n" +
+                                "\t\t\t\t\t\t\t\t<td style=\"padding-left:36px;\">"+ index +"</td>\n" +
+                                "\t\t\t\t\t\t\t\t<td>" + element.recipientName+ "</td>\n" +
+                                "\t\t\t\t\t\t\t\t<td>" + element.email + "</td>\n" +
+                                "\t\t\t\t\t\t\t</tr>\n"
+								);
+                                $("#batchInfoTable"+String(batchName)).append(tableDiv)
+                            });
+						}
+					})
 				}
 				else
 				{
 					var newAddedDiv = $("<div class=\"row\" onclick='redirect(this)'>\n" +
-						"\t\t\t<div class=\"certificate col-md-12\" data-toggle=\"modal\" data-target=\"#certModal\">\n" +
+						"\t\t\t<div class=\"certificate col-md-12\">\n" +
 						"\t\t\t\t<div class=\"infoOfCertificate\">\n" +
 						"\t\t\t\t\t<p>"+ batchData.title +"</p>\n" +
 						"\t\t\t\t\t<p>" + batchData.description + "</p>\n" +
 						"\t\t\t\t\t<p>" + batchData.numCerts + " students</p>\t\n" +
 						"\t\t\t\t</div>\t\n" +
-						"\t\t\t\t<i class=\"fa fa-refresh underProcessIcon\" aria-hidden=\"true\"></i>\n" +
+						"\t\t\t\t<span class=\"icon-refresh underProcessIcon\" aria-hidden=\"true\"></span>\n" +
 						"\t\t\t</div>\n" +
 						"\t\t</div>");
 					newAddedDiv.attr('id',batchData.batchId);
@@ -128,24 +161,9 @@ function generateIssuerDashboard(issuerData){
 	);
 }
 
-//the function redirects the user to the new page according to the card of the batch clicked
-/*function redirect(element){
-	var batchId = element.id;
-	$.ajax({
-		url:  baseUrl + "/viewBatchInfo/"+ batchId, //makes this call to create the card of the batch contents.
-		headers:{'Authorization':localStorage.token},
-		success: function(result){
-			var batchData = result;
-			if(batchData.batchStatus >= 3){
-				sessionStorage.setItem("batchId",batchId);
-				window.location.replace("verify.html");
-			}
-			else{
-				console.log(batchData.batchStatus);
-			}
-		}
-	});
-}*/
+function clickCertificate(element){
+	$("#batchInfo"+ element).toggle();
+}
 
 //this is the code that adds multiple files as uploaded by the user to the browser and displays it to the screen
 function fileUpload(){

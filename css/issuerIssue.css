@@ -4,6 +4,7 @@ html {
 }
 body{
 	background-color: #EEEEEE;
+	font-family: 'Nunito', sans-serif;
 }
 p{
 	margin: 0px;
@@ -17,9 +18,9 @@ a, a:hover{
 .tickIcon{
 	position: absolute;
 	font-size: 40px;
-	color:green;
-	top:30%;
-	right:1.5%;
+	color: green;
+	top: 30px;
+	right: 1.5%;
 }
 .underProcessIcon
 {
@@ -114,6 +115,25 @@ a, a:hover{
 	margin-top: 13px;
 	margin-bottom: 13px;
 }
+.imageCertificate{
+	display: none;
+	position: absolute;
+	top: 15px;
+	right: 1.5%;
+	height: 75px;
+	width: 150px;
+}
+.batchInfo{
+	color: #6e6e6e;
+	display: none;
+}
+.batchInfo td{
+	border-top-width: 0 !important;
+}
+.batchInfo th{
+	border-top: 1px solid #979797 !important;
+	border-bottom: 1px solid #979797 !important;
+}
 .glyphicon.certificateGlyphs{
 	margin-top: 35px;
 }
@@ -205,7 +225,7 @@ a, a:hover{
 	top: 0;
 	right: 0;
 	bottom: 0;
-	font-size: 1;
+	font-size: 1px;
 	width: 0;
 	height: 100%;
 	opacity: 0;
