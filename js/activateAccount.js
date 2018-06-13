@@ -71,7 +71,7 @@ function activateAccount(qs)
     var headers = {'Content-Type':'application/json;charset=utf8'};
 
     $.ajax({
-        url:baseUrl+"activateAccount/"+qs.token,
+        url:baseUrl+"/activateAccount/"+qs.token,
         headers:headers,
         type:"POST",
         data:data,
